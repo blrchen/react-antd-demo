@@ -8,7 +8,7 @@ import {
   UserOutlined
 } from '@ant-design/icons'
 import { useAccount, useMsal } from '@azure/msal-react'
-import { Layout, Space, Input, Dropdown, Menu, Avatar } from 'antd'
+import { Layout, Space, Input, Dropdown, Avatar } from 'antd'
 import { Link } from 'react-router-dom'
 
 import GlobalContext from '@/contexts/globalContext'

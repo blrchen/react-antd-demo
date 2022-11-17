@@ -5,8 +5,7 @@ import {
   FormOutlined,
   ProfileOutlined,
   TableOutlined,
-  WarningOutlined,
-  BuildOutlined
+  WarningOutlined
 } from '@ant-design/icons'
 import { Layout, Menu } from 'antd'
 import { Link, useLocation } from 'react-router-dom'
