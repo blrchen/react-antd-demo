@@ -11,6 +11,7 @@ export interface Trip {
   puId: number
   doId: number
   distance: number
+  fareAmount: number
 }
 
 export interface TripTableProps {
@@ -49,6 +50,12 @@ const TripTable = (props: TripTableProps) => {
       title: 'Distance',
       dataIndex: 'distance',
       width: 100
+    },
+    {
+      title: 'Fare Amount',
+      dataIndex: 'fareAmount',
+      ellipsis: true,
+      width: 100
     }
   ]
 
@@ -61,7 +68,7 @@ const TripTable = (props: TripTableProps) => {
           onChange: onSelect
         }}
         bordered={true}
-        scroll={{ y: 700 }}
+        scroll={{ y: 650 }}
         columns={columns}
         rowKey="id"
         dataSource={data}

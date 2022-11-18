@@ -11,7 +11,7 @@ const resolve = (dir) => path.resolve(__dirname, dir)
 
 const currentTime = new Date()
 
-let API_PATH = 'https://palantir-demo-api.azurewebsites.net'
+let API_PATH = 'https://piper.azurewebsites.net'
 
 module.exports = {
   env: {

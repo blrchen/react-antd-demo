@@ -6,5 +6,5 @@ import { ExecuteRequest, ExecuteRespose } from './interface'
 const API_PATH = `${config.API_PATH}`
 
 export const execute = (model: ExecuteRequest): Promise<ExecuteRespose> => {
-  return http.post(`${API_PATH}/execute`, model)
+  return http.post(`${API_PATH}/process`, model)
 }

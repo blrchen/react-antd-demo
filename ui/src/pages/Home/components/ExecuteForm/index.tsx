@@ -23,17 +23,17 @@ const ExecuteForm = (porps: ExecuteFormProps) => {
         <Select
           options={[
             {
-              value: 't1',
-              label: 'Function T1'
-            },
-            {
-              value: 't2',
-              label: 'Function T2'
-            },
-            {
-              value: 't3',
-              label: 'Function T3'
+              value: 'nyc_taxi_demo',
+              label: 'nyc_taxi_demo'
             }
+            // {
+            //   value: 't2',
+            //   label: 'Function T2'
+            // },
+            // {
+            //   value: 't3',
+            //   label: 'Function T3'
+            // }
           ]}
           mode="multiple"
           style={{ width: 350 }}

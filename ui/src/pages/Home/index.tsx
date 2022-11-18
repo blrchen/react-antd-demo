@@ -15,6 +15,7 @@ import TripTable, { Trip } from './components/TripTable'
 const Home = () => {
   const [selectedKeys, setSelectedKeys] = useState<Key[]>([])
   const [resultData, setResultData] = useState<ResultsData[]>([])
+  const [loading, setLoading] = useState<boolean>(false)
 
   const sourceRowRef = useRef<Trip[]>([])
 
@@ -34,18 +35,34 @@ const Home = () => {
         sourceRowRef.current.forEach((data) => {
           model.requests.push({
             pipeline: item,
-            data: {}
+            data: {
+              pu_loc_id: data.puId,
+              do_loc_id: data.doId,
+              pu_time: data.pickUpTime,
+              do_time: data.dropOffTime,
+              trip_distance: data.distance,
+              fare_amount: data.fareAmount
+            }
           })
         })
       })
 
-      console.log('model data', model)
-      // try {
-      //   const result = await API.Demo.execute(model)
-      //   setResultData(result.results)
-      // } catch (e) {
-      //   console.log(e)
-      // }
+      try {
+        setLoading(true)
+        const result = await API.Demo.execute(model)
+        setResultData(
+          result.results.map((item, i) => {
+            return {
+              key: i,
+              ...item
+            }
+          })
+        )
+      } catch (e: any) {
+        message.error(e.message)
+      } finally {
+        setLoading(false)
+      }
     } else {
       message.warning('Please select Trip Data')
     }
@@ -69,7 +86,7 @@ const Home = () => {
           xs={24}
           style={{ display: 'flex', flexDirection: 'column' }}
         >
-          <ResultTable data={resultData} />
+          <ResultTable loading={loading} data={resultData} />
         </Col>
       </Row>
     </PagePanel>
