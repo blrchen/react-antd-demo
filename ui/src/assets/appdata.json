@@ -1,0 +1,9 @@
+[
+    {
+        "id": 0,
+        "fv": 10,
+        "os": "IOS",
+        "appBundle": "sample",
+        "osVersion": "16.0"
+      }
+]

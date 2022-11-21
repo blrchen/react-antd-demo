@@ -7,6 +7,12 @@ import AppLayout from '@/layouts/AppLayout'
 
 const Home = lazy(() => import('@/pages/Home'))
 
+const NYCTaxi = lazy(() => import('@/pages/NYCTaxi'))
+
+const InMobi = lazy(() => import('@/pages/InMobi'))
+
+const Geo = lazy(() => import('@/pages/Geo'))
+
 const List = lazy(() => import('@/pages/List'))
 
 const Form = lazy(() => import('@/pages/Form'))
@@ -28,8 +34,18 @@ export const routers: RouteObject[] = [
     children: [
       {
         index: true,
-        path: '/',
-        element: lazyLoad(<Home />)
+        path: '/nyctaxi',
+        element: lazyLoad(<NYCTaxi />)
+      },
+      {
+        index: true,
+        path: '/inmobi',
+        element: lazyLoad(<InMobi />)
+      },
+      {
+        index: true,
+        path: '/geo',
+        element: lazyLoad(<Geo />)
       },
       {
         path: '/list',

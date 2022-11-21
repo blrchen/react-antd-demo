@@ -29,28 +29,19 @@ const menuItems = [
     label: <Link to="/">Home</Link>
   },
   {
-    key: '/list',
+    key: '/geo',
     icon: <TableOutlined />,
-    label: <Link to="/list">List</Link>
+    label: <Link to="/Geo">Geo</Link>
   },
   {
-    key: '/form',
-    icon: <FormOutlined />,
-    label: <Link to="/form">Form</Link>
+    key: '/nyctaxi',
+    icon: <TableOutlined />,
+    label: <Link to="/nyctaxi">NYCTaxi</Link>
   },
   {
-    key: '/detail',
-    icon: <ProfileOutlined />,
-    label: <Link to="/detail">Detail</Link>
-  },
-  {
-    key: 'exception',
-    icon: <WarningOutlined />,
-    label: 'Exception',
-    children: [
-      { key: '/403', label: <Link to="/403">403</Link> },
-      { key: '/404', label: <Link to="/404">404</Link> }
-    ]
+    key: '/inmobi',
+    icon: <TableOutlined />,
+    label: <Link to="/inmobi">InMobi</Link>
   }
 ]
 
