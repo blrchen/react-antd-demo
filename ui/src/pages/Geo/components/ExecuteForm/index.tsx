@@ -36,7 +36,6 @@ const ExecuteForm = (porps: ExecuteFormProps) => {
             // }
           ]}
           mode="multiple"
-          defaultValue={['geoip_demo']}
           style={{ width: 350 }}
         />
       </Item>

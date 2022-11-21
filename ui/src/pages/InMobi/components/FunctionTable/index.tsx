@@ -81,7 +81,7 @@ const FunctionTable = () => {
           <a href="https://xchfeathrtest4sto.blob.core.windows.net/public/pipeline.conf">More</a>
         }
         style={{ width: '100%' }}
-        title="Function List"
+        title="Function Definition"
         tabList={tabList}
         activeTabKey={activeTabKey1}
         onTabChange={(key) => {
