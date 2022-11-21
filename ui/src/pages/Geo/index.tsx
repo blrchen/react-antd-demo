@@ -60,12 +60,12 @@ const Geo = () => {
         setLoading(false)
       }
     } else {
-      message.warning('Please select Trip Data')
+      message.warning('Please select IP Data')
     }
   }
 
   return (
-    <PagePanel title="InMobi Demo" body={<ExecuteForm onSubmit={onExecute} />}>
+    <PagePanel title="Geo IP Demo" body={<ExecuteForm onSubmit={onExecute} />}>
       <Row>
         <FunctionTable />
       </Row>

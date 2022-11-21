@@ -65,7 +65,7 @@ const InMobi = () => {
         setLoading(false)
       }
     } else {
-      message.warning('Please select Trip Data')
+      message.warning('Please select App Data')
     }
   }
 
