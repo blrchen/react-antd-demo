@@ -56,11 +56,7 @@ const contentList: Record<string, React.ReactNode> = {
         }
       </code>
       <br />
-      <code>
-        {
-          '| project duration_second = (timestamp(do_time, "%Y/%-m/%-d %-H:%-M") - timestamp(pu_time, "%Y/%-m/%-d %-H:%-M"))'
-        }
-      </code>
+      <code>{'| project speed_mph = trip_distance * 3600 / duration_second'}</code>
       <br />
       <code>{';'}</code>
     </pre>
@@ -88,7 +84,7 @@ const contentList: Record<string, React.ReactNode> = {
       <code>{';'}</code>
     </pre>
   ),
-  concat: (
+  lookup_address: (
     <pre>
       <code>
         {

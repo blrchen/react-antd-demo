@@ -2,11 +2,9 @@ import React, { useEffect, useState } from 'react'
 
 import {
   HomeOutlined,
-  FormOutlined,
-  ProfileOutlined,
-  TableOutlined,
-  WarningOutlined,
-  BuildOutlined
+  CarOutlined,
+  ExperimentOutlined,
+  EnvironmentOutlined
 } from '@ant-design/icons'
 import { Layout, Menu } from 'antd'
 import { Link, useLocation } from 'react-router-dom'
@@ -30,17 +28,17 @@ const menuItems = [
   },
   {
     key: '/geo',
-    icon: <TableOutlined />,
+    icon: <EnvironmentOutlined />,
     label: <Link to="/Geo">Geo</Link>
   },
   {
     key: '/nyctaxi',
-    icon: <TableOutlined />,
+    icon: <CarOutlined />,
     label: <Link to="/nyctaxi">NYCTaxi</Link>
   },
   {
     key: '/inmobi',
-    icon: <TableOutlined />,
+    icon: <ExperimentOutlined />,
     label: <Link to="/inmobi">InMobi</Link>
   }
 ]

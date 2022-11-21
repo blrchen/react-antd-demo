@@ -1,95 +1,82 @@
-import React, { Key, useEffect, useRef, useState } from 'react'
+import React, { Key, useRef, useState } from 'react'
 
-import { Button, Card, Col, message, Row } from 'antd'
+import { PlayCircleOutlined } from '@ant-design/icons'
+import { Descriptions } from 'antd'
+import { Link } from 'react-router-dom'
 
-import API from '@/api'
-import { ExecuteRequest, ResultsData } from '@/api/demo/interface'
-import SourceData from '@/assets/tripdata.json'
-import PagePanel from '@/components/PagePanel'
 import { observer } from '@/hooks'
 
-import ExecuteForm from './components/ExecuteForm'
-import ResultTable from './components/ResultTable'
-import TripTable, { Trip } from './components/TripTable'
-
 const Home = () => {
-  const [selectedKeys, setSelectedKeys] = useState<Key[]>([])
-  const [resultData, setResultData] = useState<ResultsData[]>([])
-  const [loading, setLoading] = useState<boolean>(false)
-
-  const sourceRowRef = useRef<Trip[]>([])
-
-  const onSelectSource = (selectedRowKeys: Key[], selectedRows: Trip[]) => {
-    sourceRowRef.current = selectedRows
-    setSelectedKeys(selectedRowKeys)
-  }
-
-  const onExecute = async (values: { functions: string[] }) => {
-    const { functions } = values
-
-    const model: ExecuteRequest = {
-      requests: []
-    }
-    if (sourceRowRef.current.length > 0) {
-      functions.forEach((item) => {
-        sourceRowRef.current.forEach((data) => {
-          model.requests.push({
-            pipeline: item,
-            data: {
-              pu_loc_id: data.puId,
-              do_loc_id: data.doId,
-              pu_time: data.pickUpTime,
-              do_time: data.dropOffTime,
-              trip_distance: data.distance,
-              fare_amount: data.fareAmount
-            }
-          })
-        })
-      })
-
-      try {
-        setLoading(true)
-        const result = await API.Demo.execute(model)
-        setResultData(
-          result.results.map((item, i) => {
-            return {
-              key: i,
-              ...item
-            }
-          })
-        )
-      } catch (e: any) {
-        message.error(e.message)
-      } finally {
-        setLoading(false)
-      }
-    } else {
-      message.warning('Please select Trip Data')
-    }
-  }
-
   return (
-    <PagePanel title="Trip Demo" body={<ExecuteForm onSubmit={onExecute} />}>
-      <Row gutter={[20, 20]}>
-        <Col lg={24} md={24} sm={24} xl={8} xs={24}>
-          <TripTable
-            data={SourceData as Trip[]}
-            selectedKeys={selectedKeys}
-            onSelect={onSelectSource}
-          />
-        </Col>
-        <Col
-          lg={24}
-          md={24}
-          sm={24}
-          xl={16}
-          xs={24}
-          style={{ display: 'flex', flexDirection: 'column' }}
-        >
-          <ResultTable loading={loading} data={resultData} />
-        </Col>
-      </Row>
-    </PagePanel>
+    <div>
+      <Descriptions bordered title="Geo IP Demo">
+        <Descriptions.Item label="Input" span={5}>
+          IP Address
+        </Descriptions.Item>
+        <Descriptions.Item label="Output" span={5}>
+          Country, City
+        </Descriptions.Item>
+        <Descriptions.Item label="Description">
+          Look up IP Address Geo Info from external API.
+        </Descriptions.Item>
+        <Descriptions.Item>
+          <Link to="/geo">
+            <PlayCircleOutlined />
+          </Link>
+        </Descriptions.Item>
+      </Descriptions>
+      <br />
+      <Descriptions bordered title="New York Taxi Trip Demo">
+        <Descriptions.Item label="Input" span={10}>
+          Pick Up Location ID, Drop Off Location ID,
+          <br />
+          Pick Up Time, Drop Off Time
+          <br />
+          Trip Distance, Fare Amount
+        </Descriptions.Item>
+        <Descriptions.Item label="Output" span={10}>
+          Pick Up Average Fare, Drop Off Average Fare, Pick Up Max Fare, Drop Off Max Fare;
+          <br />
+          Pick Up Location Name, Drop Off Location Name
+          <br />
+          Duration (second), Speed (mph)
+        </Descriptions.Item>
+        <Descriptions.Item label="Description">
+          Based on Feathr NYC Taxi Sample:
+          <br />
+          - Look up Average Fare and Max Fare based on Location ID from Feathr Online Store;
+          <br />
+          - Look up Location Name from Map API;
+          <br />- Calculate Trip Distance and Speed with Mathematic Calculation;
+        </Descriptions.Item>
+        <Descriptions.Item>
+          <Link to="/nyctaxi">
+            <PlayCircleOutlined />
+          </Link>
+        </Descriptions.Item>
+      </Descriptions>
+      <br />
+      <Descriptions bordered title="InMobi Demo">
+        <Descriptions.Item label="Input" span={5}>
+          Float Value, OS, App Bundle, OS Version
+        </Descriptions.Item>
+        <Descriptions.Item label="Output" span={5}>
+          BucketId
+          <br />
+          OSappBundleCrossOS
+          <br />
+          majorOSVersion
+        </Descriptions.Item>
+        <Descriptions.Item label="Description">
+          Based on InMobi Requirement, bucket float value, concat string, split string
+        </Descriptions.Item>
+        <Descriptions.Item>
+          <Link to="/inmobi">
+            <PlayCircleOutlined />
+          </Link>
+        </Descriptions.Item>
+      </Descriptions>
+    </div>
   )
 }
 

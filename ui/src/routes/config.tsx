@@ -34,6 +34,11 @@ export const routers: RouteObject[] = [
     children: [
       {
         index: true,
+        path: '/',
+        element: lazyLoad(<Home />)
+      },
+      {
+        index: true,
         path: '/nyctaxi',
         element: lazyLoad(<NYCTaxi />)
       },

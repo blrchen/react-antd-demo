@@ -1,6 +1,6 @@
-import React, { Key, useEffect, useRef, useState } from 'react'
+import React, { Key, useRef, useState } from 'react'
 
-import { Button, Card, Col, message, Row } from 'antd'
+import { message, Row } from 'antd'
 
 import API from '@/api'
 import { ExecuteRequest, ResultsData } from '@/api/demo/interface'

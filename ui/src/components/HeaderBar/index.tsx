@@ -29,22 +29,10 @@ const HeaderBar = () => {
         <div className={styles.logoBar}>
           <Link to="/">
             <img alt="logo" src="/logo200.png" />
-            <h1>Demo Project</h1>
+            <h1>Feathr Online Transformation</h1>
           </Link>
         </div>
         <Space className={styles.right} size={0}>
-          <span className={styles.searchBar}>
-            <Input
-              allowClear
-              placeholder="search..."
-              prefix={<SearchOutlined />}
-              onPressEnter={(e) => {
-                const { value } = e.target as HTMLInputElement
-                onSearch?.(value)
-              }}
-            />
-          </span>
-
           <span className={styles.action} onClick={toggleFullScreen}>
             {fullScreen ? (
               <CompressOutlined style={{ fontSize: 16 }} />
