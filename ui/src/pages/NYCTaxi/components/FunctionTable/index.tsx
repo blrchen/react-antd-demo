@@ -133,9 +133,7 @@ const FunctionTable = () => {
   return (
     <>
       <Card
-        extra={
-          <a href="https://xchfeathrtest4sto.blob.core.windows.net/public/pipeline.conf">More</a>
-        }
+        extra={<a href="https://github.com/windoze/transformer/blob/main/test/test.conf">More</a>}
         style={{ width: '100%' }}
         title="Function Definition"
         tabList={tabList}
