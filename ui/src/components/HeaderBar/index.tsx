@@ -7,7 +7,6 @@ import {
   SearchOutlined,
   UserOutlined
 } from '@ant-design/icons'
-import { useAccount, useMsal } from '@azure/msal-react'
 import { Layout, Space, Input, Dropdown, Avatar } from 'antd'
 import { Link } from 'react-router-dom'
 
@@ -19,8 +18,6 @@ const { Header } = Layout
 
 const HeaderBar = () => {
   const { onSearch } = useContext(GlobalContext)
-  const { accounts } = useMsal()
-  const account = useAccount(accounts[0] || {})
   const { fullScreen, toggleFullScreen } = useFullScreen()
 
   return (
@@ -72,7 +69,7 @@ const HeaderBar = () => {
                 size="small"
                 // src={`data:image/png;base64,${account?.idTokenClaims?.aio}`}
               />
-              <span>{account?.username}</span>
+              <span>user@contoso.com</span>
             </span>
           </Dropdown>
         </Space>

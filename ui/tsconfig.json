@@ -29,5 +29,5 @@
       }
     ]
   },
-  "include": ["src", "src/**/*.d.ts", "src/configs/.ts", "src/configs/.ts"]
+  "include": ["src", "src/**/*.d.ts"]
 }

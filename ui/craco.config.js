@@ -11,12 +11,10 @@ const resolve = (dir) => path.resolve(__dirname, dir)
 
 const currentTime = new Date()
 
-let API_PATH = 'https://palantir-demo-api.azurewebsites.net'
+let API_PATH = 'https://input-your-api-endpoint'
 
 module.exports = {
-  env: {
-    AZURE_TENANT_ID: JSON.stringify('common')
-  },
+  env: {},
   eslint: {
     enable: true,
     mode: 'file'
@@ -41,9 +39,6 @@ module.exports = {
       add: [
         new WebpackBar(),
         new webpack.DefinePlugin({
-          'process.env.AZURE_TENANT_ID': JSON.stringify('common'),
-          'process.env.AZURE_CLIENT_ID': JSON.stringify('db8dc4b0-202e-450c-b38d-7396ad9631a5'),
-          'process.env.AZURE_ENABLE': process.env.NODE_ENV !== 'production',
           'process.env.API_PATH': JSON.stringify(API_PATH),
           'process.env.VERSION': JSON.stringify(version),
           'process.env.GENERATED_TIME': JSON.stringify(currentTime.toISOString())

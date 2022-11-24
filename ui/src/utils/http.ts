@@ -1,37 +1,5 @@
-import { InteractionRequiredAuthError, PublicClientApplication } from '@azure/msal-browser'
 import axios, { AxiosError } from 'axios'
 import type { AxiosRequestConfig, AxiosInstance, AxiosResponse } from 'axios'
-
-// import { msalInstance } from '@/config'
-
-export const getIdToken = async (msalInstance: PublicClientApplication): Promise<string> => {
-  const activeAccount = msalInstance.getActiveAccount() // This will only return a non-null value if you have logic somewhere else that calls the setActiveAccount API
-  const accounts = msalInstance.getAllAccounts()
-  const request = {
-    scopes: ['User.Read'],
-    account: activeAccount || accounts[0]
-  }
-
-  let idToken = ''
-
-  // Silently acquire an token for a given set of scopes. Will use cached token if available, otherwise will attempt to acquire a new token from the network via refresh token.
-  // A known issue may cause token expire: https://github.com/AzureAD/microsoft-authentication-library-for-js/issues/4206
-  await msalInstance
-    .acquireTokenSilent(request)
-    .then((response) => {
-      idToken = response.idToken
-    })
-    .catch((error) => {
-      // acquireTokenSilent can fail for a number of reasons, fallback to interaction
-      if (error instanceof InteractionRequiredAuthError) {
-        msalInstance.acquireTokenPopup(request).then((response) => {
-          idToken = response.idToken
-        })
-      }
-    })
-
-  return idToken
-}
 
 class HttpRequest {
   baseURL = '/'
