@@ -10,12 +10,12 @@ export interface VersionBarProps {
 }
 const VersionBar = (props: VersionBarProps) => {
   const { className } = props
-  const generatedTime = dayjs(config.GENERATED_TIME).utc().format('YYYY-MM-DD HH:mm:DD UTC')
+  const generatedTime = dayjs(config.GENERATED_TIME).format('YYYY-MM-DD HH:mm:DD')
 
   return (
     <Space className={className} size={[46, 0]}>
-      <span>Demo UI Version: {config.VERSION}</span>
-      <span>Demo UI Build Generated at {generatedTime}</span>
+      <span>UI Version: {config.VERSION}</span>
+      <span>UI Build Generated at {generatedTime}</span>
     </Space>
   )
 }

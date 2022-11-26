@@ -25,8 +25,8 @@ const HeaderBar = () => {
       <Header className={styles.header}>
         <div className={styles.logoBar}>
           <Link to="/">
-            <img alt="logo" src="/logo200.png" />
-            <h1>Demo Project</h1>
+            <img alt="logo" src="/logo192.png" />
+            <h1>React Demo Project</h1>
           </Link>
         </div>
         <Space className={styles.right} size={0}>
